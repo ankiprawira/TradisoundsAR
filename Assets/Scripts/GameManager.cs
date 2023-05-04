@@ -10,15 +10,18 @@ public class GameManager : MonoBehaviour{
 
     private List<AnswerData> PickedAnswers = new List<AnswerData>();
     private List<int> FinishedQuestions = new List<int>();
-    private int currentQuesion = 0;
+    private int currentQuestion = -1;
     
     void Start()
     {
         LoadQuestions();
-        foreach (var question in Questions){
-            Debug.Log(question.Info);
-        }
-        //Display();
+        var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+        UnityEngine.Random.InitState(seed);
+        
+        // foreach (var question in Questions){
+        //     Debug.Log(question.Info);
+        // }
+        Display();
     }
 
     public void EraseAnswers (){
@@ -36,9 +39,9 @@ public class GameManager : MonoBehaviour{
 
     Question GetRandomQuestion (){
         var randomIndex = GetRandomQuestionIndex();
-        currentQuesion = randomIndex;
+        currentQuestion = randomIndex;
 
-        return Questions[currentQuesion];
+        return Questions[currentQuestion];
     }
 
     int GetRandomQuestionIndex (){
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour{
         if(FinishedQuestions.Count < Questions.Length){
             do{
                 random = UnityEngine.Random.Range(0, Questions.Length);
-            } while (FinishedQuestions.Contains(random) || random == currentQuesion);
+            } while (FinishedQuestions.Contains(random) || random == currentQuestion);
         }
         return random;
     }
