@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4ec2bacc3799d643b944ca7ec8d768d, type: 3}
-  m_Name: New 2
+  m_Name: New Question
   m_EditorClassIdentifier: 
-  _info: Pilih
+  _info: Coba Pilih
   _answers:
-  - _info: Benar
+  - _info: Correct
     _isCorrect: 1
-  - _info: Salah
+  - _info: Wrong
     _isCorrect: 0
   _useTimer: 0
   _timer: 0

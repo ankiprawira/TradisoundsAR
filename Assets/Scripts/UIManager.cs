@@ -11,6 +11,14 @@ public struct UIManagerParameters
     [Header("Answers Options")]
     [SerializeField] float margins;
     public float Margins {get{return margins;}}
+
+    [Header("Resolution Screen Options")]
+    [SerializeField] Color correctBGColor;
+    public Color CorrectBGColor {get{return correctBGColor;}}
+    [SerializeField] Color incorrectBGColor;
+    public Color IncorrectBGColor {get{return incorrectBGColor;}}
+    [SerializeField] Color finalBGColor;
+    public Color FinalBGColor {get{return finalBGColor;}}
 }
 
 [Serializable()]
@@ -22,6 +30,8 @@ public struct UIElements{
     [SerializeField] TextMeshProUGUI scoreText;
     public TextMeshProUGUI ScoreText {get{return scoreText;}}
     [Space]
+    [SerializeField] Animator resolutionScreenAnimator;
+    public Animator ResolutionScreenAnimator {get{return resolutionScreenAnimator;}}
     [SerializeField] Image resolutionBG;
     public Image ResolutionBG {get{return resolutionBG;}}
     [SerializeField] TextMeshProUGUI resolutionStateInfoText;
@@ -55,18 +65,86 @@ public class UIManager : MonoBehaviour
     [SerializeField] UIManagerParameters parameters;
 
     List<AnswerData> currentAnswer = new List<AnswerData>();
+    private int resStateParaHash = 0;
+
+    private IEnumerator IE_DisplayTimedResolution;
 
     void OnEnable(){
         events.UpdateQuestionUI += UpdateQuestionUI;
+        events.DisplayResolutionScreen += DisplayResolution;
     }
     void OnDisable(){
         events.UpdateQuestionUI -= UpdateQuestionUI;
+        events.DisplayResolutionScreen -= DisplayResolution;
+    }
+    void Start(){
+        resStateParaHash = Animator.StringToHash("ScreenState");
     }
     void UpdateQuestionUI(Question question){
         uIElements.QuestionInfoTextObject.text = question.Info;
         CreateAnswers(question);
+    }
+
+    void DisplayResolution(ResolutionScreenType type, int score){
+        UpdateResolutionUI(type, score);
+        uIElements.ResolutionScreenAnimator.SetInteger(resStateParaHash, 2);
+        uIElements.MainCanvasGroup.blocksRaycasts = false;
+
+        if (type != ResolutionScreenType.Finished)
+        {
+            if (IE_DisplayTimedResolution != null)
+            {
+                StopCoroutine(IE_DisplayTimedResolution);
+            }
+            IE_DisplayTimedResolution = DisplayTimedResolution();
+            StartCoroutine(IE_DisplayTimedResolution);
+        }
 
     }
+
+    IEnumerator DisplayTimedResolution(){
+        yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
+        uIElements.ResolutionScreenAnimator.SetInteger(resStateParaHash, 1);
+        uIElements.MainCanvasGroup.blocksRaycasts = true;
+    }
+
+    void UpdateResolutionUI(ResolutionScreenType type, int score){
+        var highscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        switch (type)
+        {
+            case ResolutionScreenType.Correct:
+            uIElements.ResolutionBG.color = parameters.CorrectBGColor;
+            uIElements.ResolutionStateInfoText.text = "BENAR!";
+            uIElements.ResolutionScoreText.text = "+" + score;
+            break;
+            case ResolutionScreenType.Incorrect:
+            uIElements.ResolutionBG.color = parameters.IncorrectBGColor;
+            uIElements.ResolutionStateInfoText.text = "SALAH!";
+            uIElements.ResolutionScoreText.text = "-" + score;
+            break;
+            case ResolutionScreenType.Finished:
+            uIElements.ResolutionBG.color = parameters.FinalBGColor;
+            uIElements.ResolutionStateInfoText.text = "SKOR AKHIR";
+            StartCoroutine(CalculateScore());
+            uIElements.FinishUIElements.gameObject.SetActive(true);
+            uIElements.HighScoretext.gameObject.SetActive(true);
+            uIElements.HighScoretext.text = ((highscore > events.StartupHighscore) ? "<color=yellow>new </color>" : string.Empty) + "HighScore: " + highscore;
+            break;
+        }
+    }
+
+    IEnumerator CalculateScore()
+    {
+        var scoreValue = 0;
+        while (scoreValue < events.CurrentFinalScore)
+        {
+            scoreValue++;
+            uIElements.ResolutionScoreText.text = scoreValue.ToString();
+
+            yield return null;
+        }
+    }
+
     void CreateAnswers(Question question){
         EraseAnswers();
 

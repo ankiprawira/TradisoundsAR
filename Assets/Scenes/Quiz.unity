@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &145653169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,10 +922,10 @@ RectTransform:
   m_Father: {fileID: 2075117215}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741173438
 MonoBehaviour:
@@ -1598,6 +1598,7 @@ GameObject:
   - component: {fileID: 1023511873}
   - component: {fileID: 1023511872}
   - component: {fileID: 1023511874}
+  - component: {fileID: 1023511875}
   m_Layer: 5
   m_Name: ResolutionScreen
   m_TagString: Untagged
@@ -1674,10 +1675,30 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023511870}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &1023511875
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023511870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd9e69391381e5243a6a985c226f4768, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1059249913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,8 +1734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13, y: 8}
-  m_SizeDelta: {x: 286.8142, y: 86.7291}
+  m_AnchoredPosition: {x: 0.0000052452, y: 0}
+  m_SizeDelta: {x: 325.3808, y: 86.7291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059249915
 MonoBehaviour:
@@ -2032,7 +2053,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 648637691}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.8795181
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2223,10 +2244,10 @@ RectTransform:
   m_Father: {fileID: 1221859695}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: -7}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420050393
 MonoBehaviour:
@@ -2285,7 +2306,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2447,6 +2468,7 @@ MonoBehaviour:
     answersContentArea: {fileID: 195088840}
     questionInfoTextObject: {fileID: 1420050393}
     scoreText: {fileID: 1087791593}
+    resolutionScreenAnimator: {fileID: 1023511875}
     resolutionBG: {fileID: 1023511872}
     resolutionStateInfoText: {fileID: 1059249915}
     resolutionScoreText: {fileID: 1780004434}
@@ -2455,6 +2477,9 @@ MonoBehaviour:
     finishUIElements: {fileID: 137845836}
   parameters:
     margins: 15
+    correctBGColor: {r: 0.017727852, g: 1, b: 0, a: 1}
+    incorrectBGColor: {r: 1, g: 0, b: 0.0699749, a: 1}
+    finalBGColor: {r: 0, g: 0.72156864, b: 0.98039216, a: 1}
 --- !u!114 &1726101269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2518,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -40}
+  m_AnchoredPosition: {x: 0, y: -43}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780004434
@@ -2575,7 +2600,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2701,7 +2726,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1907656528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1726101269}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Accept
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1907656528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,7 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
+  m_Color: {r: 0.5188679, g: 0.51593095, b: 0.51593095, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -18,5 +18,7 @@ public class GameEvents : ScriptableObject {
 
     [HideInInspector]
     public int CurrentFinalScore;
+    [HideInInspector]
+    public int StartupHighscore;
 
 }
