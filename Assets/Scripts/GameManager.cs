@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
         timerDefaultColor = timerText.color;
         LoadQuestions();
 
@@ -134,6 +135,10 @@ public class GameManager : MonoBehaviour
         UpdateScore(
             (isCorrect) ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore
         );
+        if (IsFinished)
+        {
+            SetHighScore();
+        }
 
         var type =
             (IsFinished)
@@ -258,6 +263,15 @@ public class GameManager : MonoBehaviour
             return !f.Any() && !s.Any();
         }
         return false;
+    }
+
+    private void SetHighScore()
+    {
+        var highscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        if (highscore < events.CurrentFinalScore)
+        {
+            PlayerPrefs.SetInt(GameUtility.SavePrefKey, events.CurrentFinalScore);
+        }
     }
 
     private void UpdateScore(int add)
