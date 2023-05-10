@@ -57,6 +57,13 @@ public struct UIElements
     }
 
     [SerializeField]
+    TextMeshProUGUI countDownGame;
+    public TextMeshProUGUI CountDownGame
+    {
+        get { return countDownGame; }
+    }
+
+    [SerializeField]
     TextMeshProUGUI scoreText;
     public TextMeshProUGUI ScoreText
     {
@@ -160,6 +167,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0; //to pause for countdown
+        StartCoroutine(CountDownToStart());
         UpdateScoreUI();
         resStateParaHash = Animator.StringToHash("ScreenState");
     }
@@ -212,13 +221,14 @@ public class UIManager : MonoBehaviour
             case ResolutionScreenType.Finished:
                 uIElements.ResolutionBG.color = parameters.FinalBGColor;
                 uIElements.ResolutionStateInfoText.text = "SKOR AKHIR";
-                StartCoroutine(CalculateScore());
+                uIElements.ResolutionScoreText.text = events.CurrentFinalScore.ToString();
+                //StartCoroutine(CalculateScore());
                 uIElements.FinishUIElements.gameObject.SetActive(true);
                 uIElements.HighScoretext.gameObject.SetActive(true);
                 uIElements.HighScoretext.text =
                     (
                         (highscore > events.StartupHighscore)
-                            ? "<color=yellow>new </color>"
+                            ? "<color=yellow>New </color>"
                             : string.Empty
                     )
                     + "HighScore: "
@@ -275,6 +285,24 @@ public class UIManager : MonoBehaviour
 
     void UpdateScoreUI()
     {
-        uIElements.ScoreText.text = "Score: " + events.CurrentFinalScore;
+        uIElements.ScoreText.text = "SKOR: " + events.CurrentFinalScore;
+    }
+
+    public int countdownTime;
+
+    IEnumerator CountDownToStart()
+    {
+        while (countdownTime > 0)
+        {
+            uIElements.CountDownGame.text = countdownTime.ToString();
+            yield return new WaitForSecondsRealtime(1f);
+
+            countdownTime--;
+        }
+        Time.timeScale = 1;
+        uIElements.CountDownGame.text = "MULAI!";
+
+        yield return new WaitForSeconds(1f);
+        uIElements.CountDownGame.gameObject.SetActive(false);
     }
 }

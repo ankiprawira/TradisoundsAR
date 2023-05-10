@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
         var timeLeft = totalTime;
 
         timerText.color = timerDefaultColor;
-        while (timeLeft > 0)
+        while (timeLeft > 1)
         {
             timeLeft--;
 
