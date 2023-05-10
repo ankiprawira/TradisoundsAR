@@ -120,6 +120,27 @@ public struct UIElements
     {
         get { return finishUIElements; }
     }
+
+    [SerializeField]
+    Button nextButton;
+    public Button NextButton
+    {
+        get { return nextButton; }
+    }
+
+    [SerializeField]
+    Image questionContentArea;
+    public Image QuestionContentArea
+    {
+        get { return questionContentArea; }
+    }
+
+    [SerializeField]
+    Image countdownOverlay;
+    public Image CountdownOverlay
+    {
+        get { return countdownOverlay; }
+    }
 }
 
 public class UIManager : MonoBehaviour
@@ -292,6 +313,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator CountDownToStart()
     {
+        //EnableQUizObject(false);
         while (countdownTime > 0)
         {
             uIElements.CountDownGame.text = countdownTime.ToString();
@@ -299,10 +321,23 @@ public class UIManager : MonoBehaviour
 
             countdownTime--;
         }
-        Time.timeScale = 1;
         uIElements.CountDownGame.text = "MULAI!";
+        yield return new WaitForSecondsRealtime(1f);
+        EnableQUizObject(false); //
+        Time.timeScale = 1;
+        //EnableQUizObject(true);
+        // Time.timeScale = 1;
+    }
 
-        yield return new WaitForSeconds(1f);
-        uIElements.CountDownGame.gameObject.SetActive(false);
+    void EnableQUizObject(bool statement)
+    {
+        uIElements.CountDownGame.gameObject.SetActive(statement);
+        uIElements.CountdownOverlay.gameObject.SetActive(statement);
+        // uIElements.QuestionInfoTextObject.gameObject.SetActive(statement);
+        // uIElements.ScoreText.gameObject.SetActive(statement);
+        // uIElements.AnswersContentArea.gameObject.SetActive(statement);
+        // uIElements.NextButton.gameObject.SetActive(statement);
+        // uIElements.QuestionContentArea.gameObject.SetActive(statement);
+        // uIElements.TimerText.gameObject.SetActive(statement);
     }
 }

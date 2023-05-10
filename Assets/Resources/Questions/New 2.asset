@@ -18,6 +18,10 @@ MonoBehaviour:
     _isCorrect: 1
   - _info: Salah
     _isCorrect: 0
+  - _info: Salah 2
+    _isCorrect: 0
+  - _info: Salah 3
+    _isCorrect: 0
   _useTimer: 1
   _timer: 10
   _answerType: 1

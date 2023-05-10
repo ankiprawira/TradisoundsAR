@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartTimer()
     {
         var totalTime = Questions[currentQuestion].Timer;
-        var timeLeft = totalTime;
+        var timeLeft = totalTime + 1;
 
         timerText.color = timerDefaultColor;
         while (timeLeft > 1)

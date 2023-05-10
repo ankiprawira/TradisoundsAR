@@ -18,6 +18,10 @@ MonoBehaviour:
     _isCorrect: 0
   - _info: 2023
     _isCorrect: 1
+  - _info: 2020
+    _isCorrect: 0
+  - _info: 2021
+    _isCorrect: 0
   _useTimer: 1
   _timer: 15
   _answerType: 1
