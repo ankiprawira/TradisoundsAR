@@ -148,16 +148,19 @@ public class UIManager : MonoBehaviour
     {
         events.UpdateQuestionUI += UpdateQuestionUI;
         events.DisplayResolutionScreen += DisplayResolution;
+        events.ScoreUpdated += UpdateScoreUI;
     }
 
     void OnDisable()
     {
         events.UpdateQuestionUI -= UpdateQuestionUI;
         events.DisplayResolutionScreen -= DisplayResolution;
+        events.ScoreUpdated -= UpdateScoreUI;
     }
 
     void Start()
     {
+        UpdateScoreUI();
         resStateParaHash = Animator.StringToHash("ScreenState");
     }
 
@@ -268,5 +271,10 @@ public class UIManager : MonoBehaviour
             Destroy(answer.gameObject);
         }
         currentAnswer.Clear();
+    }
+
+    void UpdateScoreUI()
+    {
+        uIElements.ScoreText.text = "Score: " + events.CurrentFinalScore;
     }
 }

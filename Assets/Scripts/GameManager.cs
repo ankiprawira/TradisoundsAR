@@ -52,11 +52,16 @@ public class GameManager : MonoBehaviour
         events.UpdateQuestionAnswer -= UpdateAnswers;
     }
 
+    void Awake()
+    {
+        events.CurrentFinalScore = 0;
+    }
+
     void Start()
     {
         timerDefaultColor = timerText.color;
         LoadQuestions();
-        events.CurrentFinalScore = 0;
+
         timerStateParaHash = Animator.StringToHash("TimerState");
         var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
         UnityEngine.Random.InitState(seed);
