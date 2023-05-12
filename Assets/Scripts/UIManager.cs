@@ -242,8 +242,8 @@ public class UIManager : MonoBehaviour
             case ResolutionScreenType.Finished:
                 uIElements.ResolutionBG.color = parameters.FinalBGColor;
                 uIElements.ResolutionStateInfoText.text = "SKOR AKHIR";
-                uIElements.ResolutionScoreText.text = events.CurrentFinalScore.ToString();
-                //StartCoroutine(CalculateScore());
+                //uIElements.ResolutionScoreText.text = events.CurrentFinalScore.ToString();
+                StartCoroutine(CalculateScore());
                 uIElements.FinishUIElements.gameObject.SetActive(true);
                 uIElements.HighScoretext.gameObject.SetActive(true);
                 uIElements.HighScoretext.text =
@@ -261,6 +261,16 @@ public class UIManager : MonoBehaviour
     IEnumerator CalculateScore()
     {
         var scoreValue = 0;
+        if (events.CurrentFinalScore < 0)
+        {
+            while (scoreValue > events.CurrentFinalScore)
+            {
+                scoreValue--;
+                uIElements.ResolutionScoreText.text = scoreValue.ToString();
+
+                yield return null;
+            }
+        }
         while (scoreValue < events.CurrentFinalScore)
         {
             scoreValue++;

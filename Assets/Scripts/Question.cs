@@ -60,7 +60,7 @@ public class Question : ScriptableObject
     }
 
     [SerializeField]
-    private AnswerType _answerType = AnswerType.Multi;
+    private AnswerType _answerType = AnswerType.Single;
     public AnswerType GetAnswerType
     {
         get { return _answerType; }

@@ -185,23 +185,27 @@ public class GameManager : MonoBehaviour
         var timeLeft = totalTime + 1;
 
         timerText.color = timerDefaultColor;
-        while (timeLeft > 1)
+        if (IsFinished) { }
+        else
         {
-            timeLeft--;
-
-            if (timeLeft < totalTime / 2 && timeLeft > totalTime / 4)
+            while (timeLeft > 1)
             {
-                timerText.color = timerHalfWayOutColor;
-            }
-            if (timeLeft < totalTime / 4)
-            {
-                timerText.color = timerAlmostOutColor;
-            }
+                timeLeft--;
 
-            timerText.text = timeLeft.ToString();
-            yield return new WaitForSeconds(1.0f);
+                if (timeLeft < totalTime / 2 && timeLeft > totalTime / 4)
+                {
+                    timerText.color = timerHalfWayOutColor;
+                }
+                if (timeLeft < totalTime / 4)
+                {
+                    timerText.color = timerAlmostOutColor;
+                }
+
+                timerText.text = timeLeft.ToString();
+                yield return new WaitForSeconds(1.0f);
+            }
+            Accept();
         }
-        Accept();
     }
 
     IEnumerator WaitTillNextRound()
