@@ -16,7 +16,7 @@ MonoBehaviour:
   _answers:
   - _info: 2023
     _isCorrect: 1
-  - _info: 2025
+  - _info: 2029
     _isCorrect: 0
   - _info: 2020
     _isCorrect: 0
@@ -25,4 +25,4 @@ MonoBehaviour:
   _useTimer: 1
   _timer: 15
   _answerType: 1
-  _addScore: 1000
+  _addScore: 100

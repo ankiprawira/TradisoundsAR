@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: d2794c113dc6b9449bade6d7e8949ba2
+  - enabled: 1
+    path: Assets/Scenes/AR.unity
+    guid: 3a185cbbf0881e54ead7ba9112f2c4ab
   m_configObjects: {}
