@@ -252,7 +252,7 @@ public class UIManager : MonoBehaviour
                             ? "<color=yellow>New </color>"
                             : string.Empty
                     )
-                    + "HighScore: "
+                    + "High Score: "
                     + highscore;
                 break;
         }

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/Tentang.unity
     guid: a69175e7b573e8143a1e68ee1927ea7a
   - enabled: 1
     path: Assets/Scenes/Quiz.unity

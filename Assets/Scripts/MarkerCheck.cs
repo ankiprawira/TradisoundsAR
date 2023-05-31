@@ -7,16 +7,19 @@ using Vuforia;
 
 public class MarkerCheck : MonoBehaviour
 {
+    [Header("Isi Deskripsi")]
     public string nama;
+
     [TextArea]
     public string deskripsi;
+
     [Header("UI Deskripsi")]
     public TextMeshProUGUI txtNama;
     public TextMeshProUGUI txtDeskripsi;
 
-    void Update() {
-
-            txtNama.text = nama;
+    void Update()
+    {
+        txtNama.text = nama;
         txtDeskripsi.text = deskripsi;
     }
 }

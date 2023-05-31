@@ -29,20 +29,22 @@ public class RotateModel : MonoBehaviour
     //     rotateStatus = false;
     // }
 
-    void Start() {
+    void Start()
+    {
         startRotation = transform.rotation;
     }
+
     void Update()
     {
         if (rotateStatus == true)
         {
             if (putarKiri)
             {
-                 objectRotate.transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
+                objectRotate.transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
             }
             else
             {
-                objectRotate.transform.Rotate(Vector3.forward*-1, rotateSpeed * Time.deltaTime);
+                objectRotate.transform.Rotate(Vector3.forward * -1, rotateSpeed * Time.deltaTime);
             }
         }
     }
@@ -76,7 +78,8 @@ public class RotateModel : MonoBehaviour
         rotateStatus = false;
     }
 
-    public void ResetRotation(){
+    public void ResetRotation()
+    {
         transform.rotation = startRotation;
     }
 }

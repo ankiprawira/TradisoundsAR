@@ -25,4 +25,4 @@ MonoBehaviour:
   _useTimer: 1
   _timer: 15
   _answerType: 1
-  _addScore: 100
+  _addScore: 200

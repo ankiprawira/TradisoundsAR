@@ -7,6 +7,7 @@ public class ImageCheck : MonoBehaviour
     public string PopUpTrigger;
     public string FadeTrigger;
     private Animator nAnimation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,16 +15,16 @@ public class ImageCheck : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update() { }
 
-    }
-
-    public void ScaleUp(){
+    public void ScaleUp()
+    {
         nAnimation.SetTrigger(PopUpTrigger);
         nAnimation.ResetTrigger(FadeTrigger);
     }
 
-    public void FadeDown(){
+    public void FadeDown()
+    {
         nAnimation.SetTrigger(FadeTrigger);
         nAnimation.ResetTrigger(PopUpTrigger);
     }

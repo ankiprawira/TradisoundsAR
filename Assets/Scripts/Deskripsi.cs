@@ -14,7 +14,8 @@ public class Deskripsi : MonoBehaviour
     bool eMPanelAngklung;
     bool eMPanelInfo;
 
-    void Update(){
+    void Update()
+    {
         eMDeskripsi = mDeskripsi.activeInHierarchy;
         eMPanelInfo = mPanelInfo.activeInHierarchy;
         eMPanelAngklung = mPanelAngklung.activeInHierarchy;
@@ -27,6 +28,5 @@ public class Deskripsi : MonoBehaviour
         {
             mDeskripsi.gameObject.SetActive(false);
         }
-
     }
 }
