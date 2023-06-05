@@ -620,7 +620,7 @@ MonoBehaviour:
   m_text: Yakin ingin keluar?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0dc7a25d2b890374e9f0f8f2276f892f, type: 2}
-  m_sharedMaterial: {fileID: 8603400264176019176, guid: 1b3cca86e7fd323479c8c60e6aa36929, type: 2}
+  m_sharedMaterial: {fileID: 8603400264176019176, guid: 0dc7a25d2b890374e9f0f8f2276f892f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
