@@ -66,10 +66,6 @@ public class GameManager : MonoBehaviour
         timerStateParaHash = Animator.StringToHash("TimerState");
         var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
         UnityEngine.Random.InitState(seed);
-
-        // foreach (var question in Questions){
-        //     Debug.Log(question.Info);
-        // }
         Display();
     }
 

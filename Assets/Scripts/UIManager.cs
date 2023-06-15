@@ -323,7 +323,6 @@ public class UIManager : MonoBehaviour
 
     IEnumerator CountDownToStart()
     {
-        //EnableQUizObject(false);
         while (countdownTime > 0)
         {
             uIElements.CountDownGame.text = countdownTime.ToString();
@@ -335,19 +334,11 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         EnableQUizObject(false); //
         Time.timeScale = 1;
-        //EnableQUizObject(true);
-        // Time.timeScale = 1;
     }
 
     void EnableQUizObject(bool statement)
     {
         uIElements.CountDownGame.gameObject.SetActive(statement);
         uIElements.CountdownOverlay.gameObject.SetActive(statement);
-        // uIElements.QuestionInfoTextObject.gameObject.SetActive(statement);
-        // uIElements.ScoreText.gameObject.SetActive(statement);
-        // uIElements.AnswersContentArea.gameObject.SetActive(statement);
-        // uIElements.NextButton.gameObject.SetActive(statement);
-        // uIElements.QuestionContentArea.gameObject.SetActive(statement);
-        // uIElements.TimerText.gameObject.SetActive(statement);
     }
 }

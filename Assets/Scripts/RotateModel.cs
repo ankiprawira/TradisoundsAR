@@ -8,26 +8,8 @@ public class RotateModel : MonoBehaviour
 
     public float rotateSpeed = 50f;
     bool rotateStatus = false;
-    private bool putarKiri = false;
+    private bool putarArahKiri = false;
     Quaternion startRotation;
-
-    // //rotate object function
-    // public void RotateObject(bool putarKiri)
-    // {
-    //     this.putarKiri=putarKiri;
-    //     if (rotateStatus == false)
-    //     {
-    //         rotateStatus = true;
-    //     }
-    //     else
-    //     {
-    //         rotateStatus = false;
-    //     }
-    // }
-
-    // public void StopRotation(){
-    //     rotateStatus = false;
-    // }
 
     void Start()
     {
@@ -38,7 +20,7 @@ public class RotateModel : MonoBehaviour
     {
         if (rotateStatus == true)
         {
-            if (putarKiri)
+            if (putarArahKiri)
             {
                 objectRotate.transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
             }
@@ -49,32 +31,27 @@ public class RotateModel : MonoBehaviour
         }
     }
 
-    // IEnumerator Wait(){
-    //     yield return new WaitForSecondsRealtime(1);
-    //     startScale = transform.localRotation;
-    // }
-
     public void OnPressPutarKiri() //button sebelah kiri
     {
-        putarKiri = false; //putar arah kiri false, objek putar arah kanan
+        putarArahKiri = false; //putar arah kiri false, objek putar arah kanan
         rotateStatus = true;
     }
 
     public void OnReleasePutarKiri() //button sebelah kiri
     {
-        putarKiri = false;
+        putarArahKiri = false;
         rotateStatus = false;
     }
 
     public void OnPressPutarKanan()
     {
-        putarKiri = true;
+        putarArahKiri = true;
         rotateStatus = true;
     }
 
     public void OnReleasePutarKanan()
     {
-        putarKiri = true;
+        putarArahKiri = true;
         rotateStatus = false;
     }
 

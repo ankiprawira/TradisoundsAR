@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4ec2bacc3799d643b944ca7ec8d768d, type: 3}
-  m_Name: New Question
+  m_Name: 10
   m_EditorClassIdentifier: 
-  _info: Coba Pilih
+  _info: Apa yang membuat Sasando dapat bersuara?
   _answers:
-  - _info: Correct
+  - _info: Penyangga pada bagian tengah
     _isCorrect: 1
-  - _info: Wrong
+  - _info: Wadah anyaman
+    _isCorrect: 1
+  - _info: Tangan
     _isCorrect: 0
-  - _info: Wrong
+  - _info: Daun Lontar
     _isCorrect: 0
-  - _info: Wrong
-    _isCorrect: 0
-  _useTimer: 1
-  _timer: 10
-  _answerType: 1
+  _useTimer: 0
+  _timer: 0
+  _answerType: 0
   _addScore: 10

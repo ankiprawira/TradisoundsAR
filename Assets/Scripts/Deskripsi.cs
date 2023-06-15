@@ -27,6 +27,7 @@ public class Deskripsi : MonoBehaviour
         if (eMPanelInfo)
         {
             mDeskripsi.gameObject.SetActive(false);
+            infoButton.gameObject.SetActive(false);
         }
     }
 }
