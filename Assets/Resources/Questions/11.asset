@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ec2bacc3799d643b944ca7ec8d768d, type: 3}
   m_Name: 11
   m_EditorClassIdentifier: 
-  _info: Berikut ini merupakah alat musik yang dipukul?
+  _info: Berikut ini merupakah alat musik yang dipukul? (Pilih lebih dari 1)
   _answers:
   - _info: Sasando
     _isCorrect: 0
@@ -23,6 +23,6 @@ MonoBehaviour:
   - _info: Angklung
     _isCorrect: 0
   _useTimer: 1
-  _timer: 10
+  _timer: 20
   _answerType: 0
   _addScore: 10

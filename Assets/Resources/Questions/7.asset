@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ec2bacc3799d643b944ca7ec8d768d, type: 3}
   m_Name: 7
   m_EditorClassIdentifier: 
-  _info: Di mana Serunai sering digunakan?
+  _info: Di mana Serunai sering digunakan? (Pilih lebih dari 1)
   _answers:
   - _info: Acara Adat
     _isCorrect: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     _isCorrect: 1
   - _info: Pertunjukan Musik
     _isCorrect: 1
-  _useTimer: 1
+  _useTimer: 0
   _timer: 10
   _answerType: 0
   _addScore: 10

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ec2bacc3799d643b944ca7ec8d768d, type: 3}
   m_Name: 12
   m_EditorClassIdentifier: 
-  _info: Masyarakat Minahasa biasa menggunakan Kolintang pada?
+  _info: Masyarakat Minahasa biasa menggunakan Kolintang pada? (Pilih lebih dari
+    1)
   _answers:
   - _info: Hari kemerdekaan
     _isCorrect: 0

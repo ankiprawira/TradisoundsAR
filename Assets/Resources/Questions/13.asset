@@ -23,6 +23,6 @@ MonoBehaviour:
   - _info: Secara Berderet
     _isCorrect: 1
   _useTimer: 1
-  _timer: 10
+  _timer: 15
   _answerType: 1
   _addScore: 10
