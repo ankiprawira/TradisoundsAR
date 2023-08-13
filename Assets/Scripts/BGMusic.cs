@@ -42,7 +42,7 @@ public class BGMusic : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Check if the current scene is the "AR" scene
-        if (scene.name == "AR")
+        if (scene.name == "AR" || scene.name == "Markerless")
         {
             isARScene = true;
             PauseAudio();

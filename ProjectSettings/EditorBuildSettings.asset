@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuizStart.unity
     guid: b5c290fa117a96f47bc2973b7354ae34
+  - enabled: 1
+    path: Assets/Scenes/Markerless.unity
+    guid: e4510156afcface4fb2b1db9777c60af
   m_configObjects: {}
