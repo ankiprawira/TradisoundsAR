@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManage : MonoBehaviour
 {
     public string urlLink;
+    public float newTimeScale; // The default value
 
     public void LoadToScene(string sceneName)
     {
@@ -15,5 +16,14 @@ public class SceneManage : MonoBehaviour
     public void OpenLink()
     {
         Application.OpenURL(urlLink);
+    }
+
+    public void SetTimeScaleTo1()
+    {
+        Time.timeScale = 1;
+    }
+    public void SetTimeScaleTo0()
+    {
+        Time.timeScale = 0;
     }
 }
