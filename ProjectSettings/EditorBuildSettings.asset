@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Markerless.unity
     guid: e4510156afcface4fb2b1db9777c60af
+  - enabled: 1
+    path: Assets/Scenes/Pilih.unity
+    guid: 14e5471bab7dece498865c4f35047994
   m_configObjects: {}

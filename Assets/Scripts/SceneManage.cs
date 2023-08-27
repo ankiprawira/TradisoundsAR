@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneManage : MonoBehaviour
 {
     public string urlLink;
-    public float newTimeScale; // The default value
 
     public void LoadToScene(string sceneName)
     {
