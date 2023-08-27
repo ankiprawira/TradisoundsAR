@@ -47,7 +47,7 @@ public class BGMusic : MonoBehaviour
             isARScene = true;
             PauseAudio();
         }
-        else if (scene.name == "Main Menu")
+        else
         {
             isARScene = false;
             ResumeAudio();
